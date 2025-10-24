@@ -1,218 +1,151 @@
-/* ページ背景 */
-.kashi{
-background-color:#1C1C2E;
-color:white;
-}
-
-/* 見出し */
-h1{
-text-align:center
-}
-
-/* 画像サムネ */
-.image img{
-width:150px;
-}
-
-
-/* スマホ用（画面幅600px以下の場合） */
-@media screen and (max-width: 480px) {
-  body {
-    font-size: 16px; /* 少し小さめに */
-    padding: 10px;
-    max-width: 100%; /* 幅を画面に合わせる */
-  }
-}
-
-
-/* 表box中身 */
-table td{
-padding:5px;
-}
-
-/* 表box */
-table{
-border-collapse:collapse;
-}
-
-table th, table td{
-border: solid 0px black;
-}
-
-
-/* タイトルデザイン */
-.title{
-text-decoration:none;
-color:black;
-font-size:25px;
-font-weight:bold;
-}
-
-.title:hover{
-color:skyblue;
-}
-
-/* 各ページの曲名 */
-.kyokumei{
-text-decoration:none;
-color:white;
-font-size:30px;
-font-weight:bold;
-}
-
-/* 歌詞デザイン */
-.sen{
-text-decoration:none;
-color:yellow;
-font-size:15px;
-font-weight:bold;
-}	
-
-.shima{
-text-decoration:none;
-color:fuchsia;
-font-size:15px;
-font-weight:bold;
-}
-
-.ura{
-text-decoration:none;
-color:yellowgreen;
-font-size:15px;
-font-weight:bold;
-}
-
-.saka{
-text-decoration:none;
-color:red;
-font-size:15px;
-font-weight:bold;
-}
-
-.plain{
-text-decoration:none;
-color:white;
-font-size:15px;
-font-weight:bold;
-}
-
-.urasaka{
-text-decoration:none;
-color:white;
-font-size:15px;
-font-weight:bold;
-background: linear-gradient(yellowgreen 55%, red 45%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-}
-
-.shimasen{
-text-decoration:none;
-color:white;
-font-size:15px;
-font-weight:bold;
-background: linear-gradient(fuchsia 55%, yellow 45%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-}
-
-.shimasaka{
-text-decoration:none;
-color:white;
-font-size:15px;
-font-weight:bold;
-background: linear-gradient(fuchsia 55%, red 45%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-}
-
-.urasen{
-text-decoration:none;
-color:white;
-font-size:15px;
-font-weight:bold;
-background: linear-gradient(yellowgreen 55%, yellow 45%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-}
-
-.urashima{
-text-decoration:none;
-color:white;
-font-size:15px;
-font-weight:bold;
-background: linear-gradient(yellowgreen 55%, fuchsia 45%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-}
-
-.sakasen{
-text-decoration:none;
-color:white;
-font-size:15px;
-font-weight:bold;
-background: linear-gradient(red 55%, yellow 45%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-}
-
-.hen{
-text-decoration:none;
-color:skyblue;
-font-size:15px;
-font-weight:bold;
-}
-
-/*copilotが作ったやつ*/
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  padding: 1em;
-  background: #f8f8f8;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-#searchBox {
-  width: 100%;
-  padding: 0.5em;
-  font-size: 1em;
-  margin-bottom: 1em;
-}
-
-.sort-buttons {
-  display: flex;
-  gap: 0.5em;
-  flex-wrap: wrap;
-}
+/* ============================= */
+/* 🌟 カードUI（ホーム画面） */
+/* ============================= */
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
-  padding: 1em;
+  gap: 16px;
   justify-content: center;
+  padding: 16px;
 }
 
 .card {
   width: 140px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   text-align: center;
   text-decoration: none;
-  color: black;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card img {
   width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  object-fit: cover;
 }
 
 .card p {
-  margin-top: 0.5em;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 0.95em;
+}
+
+/* ============================= */
+/* 🎵 歌詞ページの背景・タイトル */
+/* ============================= */
+
+.kashi {
+  background-color: #1C1C2E;
+  color: white;
+}
+
+.kyokumei {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.title:hover {
+  color: skyblue;
+}
+
+/* ============================= */
+/* 🎤 パート別歌詞スタイル */
+/* ============================= */
+
+.sen {
+  color: yellow;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.shima {
+  color: fuchsia;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.ura {
+  color: yellowgreen;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.saka {
+  color: red;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.plain {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.hen {
+  color: skyblue;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* ============================= */
+/* 🌈 複合パート（グラデーション） */
+/* ============================= */
+
+.urasaka {
+  background: linear-gradient(yellowgreen 55%, red 45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.shimasen {
+  background: linear-gradient(fuchsia 55%, yellow 45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.shimasaka {
+  background: linear-gradient(fuchsia 55%, red 45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.urasen {
+  background: linear-gradient(yellowgreen 55%, yellow 45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.urashima {
+  background: linear-gradient(yellowgreen 55%, fuchsia 45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.sakasen {
+  background: linear-gradient(red 55%, yellow 45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 15px;
   font-weight: bold;
 }
