@@ -1,0 +1,165 @@
+/* ページ背景 */
+.kashi{
+background-color:#1C1C2E;
+color:white;
+}
+
+/* 見出し */
+h1{
+text-align:center
+}
+
+/* 画像サムネ */
+.image img{
+width:150px;
+}
+
+
+/* スマホ用（画面幅600px以下の場合） */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 16px; /* 少し小さめに */
+    padding: 10px;
+    max-width: 100%; /* 幅を画面に合わせる */
+  }
+}
+
+
+/* 表box中身 */
+table td{
+padding:5px;
+}
+
+/* 表box */
+table{
+border-collapse:collapse;
+}
+
+table th, table td{
+border: solid 0px black;
+}
+
+
+/* タイトルデザイン */
+.title{
+text-decoration:none;
+color:black;
+font-size:30px;
+font-weight:bold;
+}
+
+.title:hover{
+color:skyblue;
+}
+
+/* 各ページの曲名 */
+.kyokumei{
+text-decoration:none;
+color:white;
+font-size:30px;
+font-weight:bold;
+}
+
+/* 歌詞デザイン */
+.sen{
+text-decoration:none;
+color:yellow;
+font-size:15px;
+font-weight:bold;
+}	
+
+.shima{
+text-decoration:none;
+color:fuchsia;
+font-size:15px;
+font-weight:bold;
+}
+
+.ura{
+text-decoration:none;
+color:yellowgreen;
+font-size:15px;
+font-weight:bold;
+}
+
+.saka{
+text-decoration:none;
+color:red;
+font-size:15px;
+font-weight:bold;
+}
+
+.plain{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:bold;
+}
+
+.urasaka{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:bold;
+background: linear-gradient(yellowgreen 55%, red 45%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.shimasen{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:bold;
+background: linear-gradient(fuchsia 55%, yellow 45%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.shimasaka{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:bold;
+background: linear-gradient(fuchsia 55%, red 45%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.urasen{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:bold;
+background: linear-gradient(yellowgreen 55%, yellow 45%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.urashima{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:bold;
+background: linear-gradient(yellowgreen 55%, fuchsia 45%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.sakasen{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:bold;
+background: linear-gradient(red 55%, yellow 45%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.hen{
+text-decoration:none;
+color:skyblue;
+font-size:15px;
+font-weight:bold;
+}
+
