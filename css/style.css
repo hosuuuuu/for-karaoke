@@ -38,114 +38,63 @@
   font-size: 0.95em;
 }
 
-/* ============================= */
-/* 🎵 歌詞ページの背景・タイトル */
-/* ============================= */
+body.lyrics-page {
+  background-color: white;
+  color: black;
+  font-family: sans-serif;
+  font-size: 18px;
+  padding: 16px;
+}
 
-.kashi {
-  background-color: #1C1C2E;
+.song-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.thumbnail {
+  width: 120px;
+  border-radius: 8px;
+}
+
+.song-info {
+  flex: 1;
+}
+
+.song-title {
+  font-size: 24px;
+  margin: 0 0 8px;
+}
+
+.lyrics .line {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+}
+
+.part-label {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 14px;
+  font-weight: bold;
   color: white;
+  border-radius: 12px;
+  margin-right: 8px;
+  min-width: 40px;
+  text-align: center;
 }
 
-.kyokumei {
-  text-decoration: none;
-  color: white;
-  font-size: 30px;
-  font-weight: bold;
+/* 単独パート色 */
+.u { background-color: yellowgreen; }
+.shi { background-color: purple; }
+.sa { background-color: red; }
+.se { background-color: gold; }
+
+/* 複数人パート（横グラデーション） */
+.u.shi {
+  background: linear-gradient(to right, yellowgreen 50%, purple 50%);
 }
-
-.title:hover {
-  color: skyblue;
-}
-
-/* ============================= */
-/* 🎤 パート別歌詞スタイル */
-/* ============================= */
-
-.sen {
-  color: yellow;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.shima {
-  color: fuchsia;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.ura {
-  color: yellowgreen;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.saka {
-  color: red;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.plain {
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.hen {
-  color: skyblue;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-/* ============================= */
-/* 🌈 複合パート（グラデーション） */
-/* ============================= */
-
-.urasaka {
-  background: linear-gradient(yellowgreen 55%, red 45%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.shimasen {
-  background: linear-gradient(fuchsia 55%, yellow 45%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.shimasaka {
-  background: linear-gradient(fuchsia 55%, red 45%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.urasen {
-  background: linear-gradient(yellowgreen 55%, yellow 45%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.urashima {
-  background: linear-gradient(yellowgreen 55%, fuchsia 45%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.sakasen {
-  background: linear-gradient(red 55%, yellow 45%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 15px;
-  font-weight: bold;
+.se.u {
+  background: linear-gradient(to right, gold 50%, yellowgreen 50%);
 }
