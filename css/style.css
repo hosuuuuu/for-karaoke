@@ -82,8 +82,7 @@ body.lyrics-page {
   font-size: 14px;
   font-weight: bold;
   color: white;
-  border-radius: 12px;
-  margin-right: 8px;
+  border-radius: 4px;
   min-width: 40px;
   text-align: center;
 }
@@ -94,10 +93,10 @@ body.lyrics-page {
 .sa { background-color: red; }
 .se { background-color: gold; }
 
-/* 複数人パート（横グラデーション） */
-.u.shi {
-  background: linear-gradient(to right, yellowgreen 50%, purple 50%);
+.label-group {
+  display: flex;
+  gap: 4px;
+  margin-right: 8px;
 }
-.se.u {
-  background: linear-gradient(to right, gold 50%, yellowgreen 50%);
-}
+
+
