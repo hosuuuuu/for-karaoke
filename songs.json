@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Happiness",
+    "releaseDate": "2025-09-20T15:00:00.000Z",
+    "artist": "浦島坂田船",
+    "album": "なし",
+    "image": "images/Happiness.webp",
+    "link": "lyrics/Happiness.html"
+  },
+  {
+    "title": "Exorcise",
+    "releaseDate": "2025-10-16T15:00:00.000Z",
+    "artist": "浦島坂田船",
+    "album": "なし",
+    "image": "images/Exorcise.webp",
+    "link": "lyrics/Exorcise.html"
+  },
+  {
+    "title": "MINE MINE",
+    "releaseDate": "2025-06-19T15:00:00.000Z",
+    "artist": "浦島坂田船",
+    "album": "WARN12G",
+    "image": "images/MINE-MINE.webp",
+    "link": "lyrics/MINE-MINE.html"
+  },
+  {
+    "title": "Q for U",
+    "releaseDate": "2022-09-10T15:00:00.000Z",
+    "artist": "浦島坂田船",
+    "album": "なし",
+    "image": "images/Q-for-U.webp",
+    "link": "lyrics/Q-for-U.html"
+  },
+  {
+    "title": "おーるでい・おーるにゃいと",
+    "releaseDate": "2023-10-13T15:00:00.000Z",
+    "artist": "浦島坂田船",
+    "album": "浦島坂田幽霊船 HALLOWEEEEN PARTY SPECIAL SELECTION",
+    "image": "images/おーるでい・おーるにゃいと.webp",
+    "link": "lyrics/おーるでい・おーるにゃいと.html"
+  },
+  {
+    "title": "グリムメイカー",
+    "releaseDate": "2018-10-23T15:00:00.000Z",
+    "artist": "浦島坂田船",
+    "album": "浦島坂田幽霊船 HALLOWEEEEN PARTY SPECIAL SELECTION",
+    "image": "images/グリムメイカー.webp",
+    "link": "lyrics/グリムメイカー.html"
+  },
+  {
+    "title": "ハロウ！ゴーストシップ",
+    "releaseDate": "2017-10-22T15:00:00.000Z",
+    "artist": "浦島坂田船",
+    "album": "浦島坂田幽霊船 HALLOWEEEEN PARTY SPECIAL SELECTION",
+    "image": "images/ハロウ！ゴーストシップ.webp",
+    "link": "lyrics/ハロウ！ゴーストシップ.html"
+  },
+  {
+    "title": "フレテ",
+    "releaseDate": "2024-04-09T15:00:00.000Z",
+    "artist": "浦島坂田船",
+    "album": "Weddiing",
+    "image": "images/フレテ.webp",
+    "link": "lyrics/フレテ.html"
+  }
+]

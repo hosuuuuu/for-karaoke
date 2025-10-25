@@ -1,0 +1,276 @@
+/* ============================= */
+/* 🌟 ヘッダー（タイトル）部分 */
+/* ============================= */
+
+.site-header {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.site-title {
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* ============================= */
+/* 🌟 カードUI（ホーム画面） */
+/* ============================= */
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 16px;
+}
+
+.card {
+  width: 140px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  object-fit: cover;
+}
+
+.card p {
+  padding: 8px;
+  font-weight: bold;
+  font-size: 0.95em;
+}
+
+/* ============================= */
+/* 🌟 検索ボックスのスタイル追加 */
+/* ============================= */
+
+#searchBox {
+  width: 240px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin: 16px auto;
+  display: block;
+}
+
+/* ============================= */
+/* 🌟 並び替えボタンのスタイル調整 */
+/* ============================= */
+
+.sort-buttons button {
+  margin: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sort-buttons button:hover {
+  background-color: #ddd;
+}
+
+/* ============================= */
+/* 🌟 ヘッダー・タイトル設定 */
+/* ============================= */
+
+.title-banner {
+  text-align: center; /* タイトルを中央揃えに */
+  padding: 8px 16px 0; /* 上:32px 左右:16px 下:0（波がある場合は別途調整） */
+}
+
+/* ホームへのリンクを含むタイトルのスタイル */
+.header-link {
+  text-decoration: none; /* 下線を消す */
+  color: inherit;         /* 親要素の文字色を引き継ぐ */
+  display: block;         /* ブロック要素として扱うことでクリック範囲を広げる */
+  cursor: pointer;        /* ホバー時にポインター表示 */
+}
+
+/* ヘッダーのタイトル文字設定 */
+
+.page-title {
+  font-size: 28px;        /* タイトルの大きさ */
+  font-weight: bold;      /* 太字にする */
+  margin: 0;              /* 余計な余白を消す */
+  padding-bottom: 48px;   /* ✅ タイトルの下に広めの余白を追加 */
+  white-space: nowrap;    /* 改行を防ぐ（スマホでも1行表示） */
+  word-break: keep-all;   /* 日本語の途中改行を防ぐ */
+}
+
+/* ============================= */
+/* 🌟 曲情報・サムネイル設定 */
+/* ============================= */
+
+/* 曲情報ブロックのスタイル設定 */
+
+.song-header {
+  display: flex;               /* 縦並びにする */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 48px;         /* ✅ 歌詞との間に広めの余白を追加（例：48px） */
+}
+
+.thumbnail {
+  width: 240px;             /* ✅ サムネイルのサイズを少し大きく（例：200px） */
+  border-radius: 8px;       /* 角を丸くする */
+  margin-bottom: 16px;      /* ✅ 曲名との間に余白を追加 */
+}
+
+/* 曲名のスタイル設定 */
+
+.song-title {
+  font-size: 24px;          /* 曲名の文字サイズ */
+  margin-bottom: 16px;       /* 曲名とその下の情報との間の余白 */
+}
+
+/* 曲情報ブロックのスタイル設定 */
+
+.song-info {
+  font-size: 16px;         /* 情報の文字サイズ */
+  line-height: 1.4;        /* 行間を少し詰めることでまとまり感を出す */
+}
+
+/* 曲情報の各項目（pタグ）の余白調整 */
+
+.song-info p {
+  margin: 2px 0;           /* ✅ 上下の余白を最小限にしてコンパクトに表示 */
+}
+
+/* ============================= */
+/* 🌟 歌詞構造（ラベル＋歌詞） */
+/* ============================= */
+
+.line {
+  display: flex;              /* 横並びにする */
+  align-items: center;        /* 垂直方向の中央揃え */
+  gap: 2px;                   /* ✅ ラベルと歌詞の間の余白を少なめに（例：4px） */
+  margin-bottom: 16px;        /* ✅ 次のラベルとの間に広めの余白を追加（例：12px） */
+}
+
+/* ラベルグループのスタイル設定 */
+
+.label-group {
+  display: flex;
+  gap: 0px;                   /* ラベル同士の隙間（人数に応じて調整済み） */
+  margin-right: 4px;          /* ✅ 歌詞との間に少しだけ余白（例：4px） */
+  margin-bottom: 0px;
+  align-self: flex-start;
+  text-align: left;       
+}
+
+.part-label {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ラベル色 */
+.う { background-color: yellowgreen; }
+.し { background-color: purple; }
+.さ { background-color: red; }
+.せ { background-color: gold; }
+
+/* ✅ 人数に応じたラベル幅（必要なら復活） */
+.label-1 .part-label { width: 96px; }
+.label-2 .part-label { width: 48px; }
+.label-3 .part-label { width: 32px; }
+.label-4 .part-label { width: 24px; }
+
+/* ============================= */
+/* 🌟 歌詞本文のスタイル設定 */
+/* ============================= */
+
+.lyric-text {
+  flex-grow: 1;               /* 残りの幅を使って表示 */
+  word-break: break-word;     /* 折り返し許容 */
+　width: 100%;
+  text-align: left;
+  margin-left: 0;             /* ✅ ラベルとの間の余白をゼロに（必要に応じて） */
+}
+
+/* ============================= */
+/* 📱 スマホサイズでは縦並びに切り替え */
+/* ============================= */
+
+@media screen and (max-width: 480px) {
+  .page-title {
+    font-size: 22px;
+  }
+
+ .line {
+   flex-direction: column;         /* ✅ ラベルと歌詞を縦並びに */
+   align-items: flex-start !important; /* ✅ 左揃えを強制 */
+   gap: 2px;                        /* ✅ ラベルと歌詞の間の余白は少なめに */
+   margin-bottom: 18px;            /* ✅ ラベルとラベルの間の余白はやや広めに保つ */
+  }
+
+ .lyric-text {
+   width: 100%;
+   text-align: left;
+  }
+}
+
+body.lyrics-page {
+  background-color: white;
+  color: black;
+  font-family: sans-serif;
+  font-size: 18px;
+  padding: 16px;
+}
+
+/* パソコンサイズでのレイアウト */
+
+@media screen and (min-width: 768px) {
+  .song-header {
+    flex-direction: row;         /* ✅ 横並びにする */
+    justify-content: flex-start;     /* ✅ 中央寄せ（必要なら） */
+    align-items: flex-start;         /* ✅ 垂直方向の中央揃え */
+    gap: 32px;                   /* ✅ サムネと情報の間に余白 */
+    text-align: left;            /* ✅ 曲情報を左揃えに */
+  }
+
+  .song-info {
+    text-align: left;            /* ✅ 曲情報のテキストも左揃えに */
+    max-width: 400px;            /* ✅ 情報ブロックの幅を制限（必要なら） */
+  }
+
+  .song-title {
+    text-align: left;              /* ✅ 曲名も左揃えに */
+  }
+
+.label-group {
+    margin-right: 16px; /* ✅ ラベルと歌詞の間にしっかり余白を追加 */
+  }
+}
+
+
+
