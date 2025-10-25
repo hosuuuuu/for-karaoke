@@ -48,23 +48,26 @@ body.lyrics-page {
 
 .song-header {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   margin-bottom: 24px;
 }
 
 .thumbnail {
-  width: 120px;
+  width: 160px;
   border-radius: 8px;
+  maegin-bottom: 12px;
 }
 
 .song-info {
-  flex: 1;
+  font-size: 16px;
+  color: black;
 }
 
 .song-title {
   font-size: 24px;
-  margin: 0 0 8px;
+  margin-bottom: 8px;
 }
 
 .lyrics .line {
