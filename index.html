@@ -10,22 +10,30 @@
 </head>
 
 <body>
-  <header class="site-header">  
-    <h1 id="siteTitle" class="site-title">浦島坂田船歌詞まとめ！</h1>
-    <input type="text" id="searchBox" placeholder="曲名・歌詞などで検索">    
-    
-　　<div class="sort-buttons">
+  <header>  
+    <h1>浦島坂田船歌詞まとめ！</h1>
+    <input type="text" id="searchBox" placeholder="曲名・歌詞で検索">    
+    <div class="sort-buttons">
     <button onclick="sortByTitle()">50音順</button>
     <button onclick="sortByArtist()">アーティスト順</button>
     <button onclick="sortByAlbum()">アルバム順</button>
     </div>
   </header>
 
-<!-- カードを入れるコンテナ -->
-<div class="card-container"></div>
-
-<!-- スクリプトの読み込み -->
-<script src="js/index.js"></script>
+ <main>
+    <div class="card-container">
+      <!-- 曲カード（1曲分） -->
+      <a class="card" href="lyrics/Exorcise.html">
+        <img src="images/Exorcise.webp" alt="Exorcise">
+        <p>Exorcise</p>
+      </a>
+      <!-- 他の曲も同様に並べる -->
+      <a class="card" href="lyrics/Happiness.html">
+        <img src="images/Happiness.webp" alt="Happiness">
+        <p>Happiness</p>
+      </a>
+    </div>
+  </main>
 
 </body>
 </html>
