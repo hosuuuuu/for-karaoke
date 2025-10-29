@@ -78,7 +78,7 @@ function renderCards(list) {
     card.dataset.title = song.title;
 
     card.innerHTML = `
-      <img src="../images/song-${song.id}.webp" alt="${song.title}">
+      <img src="./images/song-${song.id}.webp" alt="${song.title}">
       <p>${title}</p>
     `;
 
