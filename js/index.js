@@ -14,7 +14,7 @@ Promise.all([
   await Promise.all(
     songs.map(async song => {
       try {
-        const res = await fetch(`../lyrics/lyrics_${song.id}.json`);
+        const res = await fetch(`./lyrics/lyrics_${song.id}.json`);
         const lyricBlocks = await res.json();
         const fullText = lyricBlocks.map(block => block.text).join("\n");
         lyricsMap[song.title] = fullText;
