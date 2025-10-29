@@ -5,35 +5,49 @@
   <meta charset="utf-8" />
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="style.css"/>
   <title>浦島坂田船歌詞まとめ</title>
 </head>
 
 <body>
-  <header>  
-    <h1>浦島坂田船歌詞まとめ！</h1>
-    <input type="text" id="searchBox" placeholder="曲名・歌詞で検索">    
-    <div class="sort-buttons">
-    <button onclick="sortByTitle()">50音順</button>
-    <button onclick="sortByArtist()">アーティスト順</button>
-    <button onclick="sortByAlbum()">アルバム順</button>
-    </div>
+  <header class="site-header">  
+    <h1 id="reset-button" class="site-title">浦島坂田船歌詞まとめ！</h1>
+
+  <nav class="main-menu">
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="artist/index.html">ARTIST</a></li>
+    <li><a href="album/index.html">ALBUM</a></li>
+    <li><a href="html/lives.html">SETLIST</a></li>
+  </ul>
+  </nav>
   </header>
 
- <main>
-    <div class="card-container">
-      <!-- 曲カード（1曲分） -->
-      <a class="card" href="lyrics/Exorcise.html">
-        <img src="images/Exorcise.webp" alt="Exorcise">
-        <p>Exorcise</p>
-      </a>
-      <!-- 他の曲も同様に並べる -->
-      <a class="card" href="lyrics/Happiness.html">
-        <img src="images/Happiness.webp" alt="Happiness">
-        <p>Happiness</p>
-      </a>
-    </div>
-  </main>
+   <section id="controls">
+ 
+<!--検索履歴表示用-->
+ <div class="search-wrapper">
+  <input type="text" id="search-input" placeholder="曲名・アーティストなどで検索" />
+  <div id="search-history" class="search-history"></div>
+</div>
+  
+  <div class="sort-buttons">
+  <button class="sort-btn" data-sort="date">発表日順</button>
+  <button class="sort-btn" data-sort="title">50音順</button>
+  <button class="sort-btn" data-sort="artist">アーティスト順</button>
+  <button class="sort-btn" data-sort="album">アルバム順</button>
+</div>
+
+
+<!-- カードを入れるコンテナ -->
+<div class="card-container"></div>
+
+<div class="card-container"></div>
+<p id="no-results-message" style="display: none;">🔍 該当する曲が見つかりませんでした</p>
+
+<!-- スクリプトの読み込み -->
+<script src="js/index.js"></script>
+
 
 </body>
 </html>
