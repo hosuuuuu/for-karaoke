@@ -1,7 +1,7 @@
 const id = location.pathname.split("/").pop().replace(".html", "");
 
 // 曲情報を読み込む
-fetch("../json/songs.json")
+fetch("./json/songs.json")
   .then(res => res.json())
   .then(songs => {
     const song = songs.find(s => s.id === id);

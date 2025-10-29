@@ -5,7 +5,7 @@ let currentSort = "date";
 let isDescending = true;
 
 Promise.all([
-  fetch("../json/songs.json").then(res => res.json())
+  fetch("./json/songs.json").then(res => res.json())
 ])
 .then(async ([songsData]) => {
   songs = songsData;

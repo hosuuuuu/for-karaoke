@@ -2,7 +2,7 @@
 const path = window.location.pathname;
 const song = path.split("/").pop().replace(".html", "");
 
-fetch(`../lyrics/${song}.json`)
+fetch(`./lyrics/${song}.json`)
   .then(res => res.json())
   .then(lyricsData => {
     const container = document.getElementById("lyrics-container");
