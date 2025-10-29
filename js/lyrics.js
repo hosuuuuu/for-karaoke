@@ -1,7 +1,7 @@
 const id = location.pathname.split("/").pop().replace(".html", "");
 
 // 曲情報を読み込む
-fetch("./json/songs.json")
+fetch("../json/songs.json")
   .then(res => res.json())
   .then(songs => {
     const song = songs.find(s => s.id === id);
@@ -12,7 +12,7 @@ fetch("./json/songs.json")
     document.getElementById("song-artist").textContent = `アーティスト：${song.artist}`;
     document.getElementById("song-date").textContent = `リリース日：${song.releaseDate}`;
     document.getElementById("song-album").textContent = `アルバム：${song.album}`;
-    document.getElementById("song-thumbnail").src = `../images/song-${song.id}.webp`;
+    document.getElementById("song-thumbnail").src = `./images/song-${song.id}.webp`;
     document.getElementById("song-thumbnail").alt = song.title;
 
     // ページタイトルも更新
