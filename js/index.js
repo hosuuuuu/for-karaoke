@@ -89,8 +89,7 @@ function renderCards(list) {
 // 🔽 ③ 検索機能（検索ボックスの入力に応じて絞り込み）
 document.getElementById("search-input").addEventListener("input", function () {
   const keyword = this.value.toLowerCase();
-  saveSearchHistory(keyword);
-  showSearchHistory(); // ✅ 入力のたびに履歴を更新
+  showSearchHistory(); // ✅ 履歴表示だけ更新（保存はしない）
 
   const filtered = songs.filter(song => {
     const lyricsText = String(lyricsMap[song.title] || "").toLowerCase();
@@ -104,6 +103,27 @@ document.getElementById("search-input").addEventListener("input", function () {
 
   renderCards(filtered);
 });
+
+document.getElementById("search-button").addEventListener("click", () => {
+  const keyword = document.getElementById("search-input").value.toLowerCase().trim();
+  if (!keyword) return;
+
+  saveSearchHistory(keyword);   // ✅ このタイミングで履歴に追加
+  showSearchHistory();          // ✅ 履歴表示を更新
+
+  const filtered = songs.filter(song => {
+    const lyricsText = String(lyricsMap[song.title] || "").toLowerCase();
+    return (
+      song.title.toLowerCase().includes(keyword) ||
+      song.artist.toLowerCase().includes(keyword) ||
+      song.album.toLowerCase().includes(keyword) ||
+      lyricsText.includes(keyword)
+    );
+  });
+
+   renderCards(filtered);
+});
+
 
 const input = document.getElementById("search-input");
 const historyBox = document.getElementById("search-history");
