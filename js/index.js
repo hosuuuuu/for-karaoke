@@ -74,7 +74,7 @@ function renderCards(list) {
 
     const card = document.createElement("a");
     card.className = "card";
-    card.href = `./html/${song.id}.html`;
+    card.href = `./html/lyrics.html?id=${song.id}`;
     card.dataset.title = song.title;
 
     card.innerHTML = `

@@ -338,9 +338,16 @@ mark {
 
 .line {
   display: flex;              /* 横並びにする */
-  align-items: center;        /* 垂直方向の中央揃え */
+  align-items: flex-start;        /* 垂直方向の中央揃え */
   gap: 2px;                   /* ✅ ラベルと歌詞の間の余白を少なめに（例：4px） */
   margin-bottom: 16px;        /* ✅ 次のラベルとの間に広めの余白を追加（例：12px） */
+  flex-direction: column;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  max-width: 90%;
+  width: fit-content;
+  background-color: transparent;
 }
 
 /* ラベルグループのスタイル設定 */
@@ -356,17 +363,19 @@ mark {
 
 .part-label {
   display: inline-block;
-  height: 28px;
+  height: auto;
   line-height: 28px;
   font-size: 14px;
   font-weight: bold;
   color: white;
   text-align: center;
-  border-radius: 4px;
+  border-radius: 6px;
   flex-shrink: 0;
   white-space: nowrap;
   overflow: hidden;
   box-sizing: border-box;
+  user-select: none;     /* テキスト選択を禁止 */
+  cursor: default;       /* カーソルを通常の矢印に固定 */
 }
 
 /* ラベル色 */
@@ -385,12 +394,65 @@ mark {
 /* 🌟 歌詞本文のスタイル設定 */
 /* ============================= */
 
+/*背景の色付け*/
+/* ベース */
 .lyric-text {
   flex-grow: 1;               /* 残りの幅を使って表示 */
   word-break: break-word;     /* 折り返し許容 */
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   text-align: left;
   margin-left: 0;             /* ✅ ラベルとの間の余白をゼロに（必要に応じて） */
+  padding: 0.3em 0.6em;       /*余白*/
+  font-size: 18px;            /*歌詞の文字の大きさ*/
+  line-height: 1.5;
+  border-radius: 8px;
+  white-space: normal;
+  position: relative;
+  z-index: 1;
+}
+
+/*デフォルト・ブラインドボタン*/
+.mode-switch-group {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 20px 0;
+  flex-wrap: nowrap; /* ✅ 横並びを維持 */
+  overflow-x: auto;   /* ✅ はみ出したらスクロール */
+}
+
+.mode-switch {
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: bold;
+  border: 2px solid #ccc;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-width: 120px;     /* ✅ 最小幅を確保 */
+  flex-shrink: 0;       /* ✅ 縮まらないようにする */
+}
+
+.mode-switch:hover {
+  background-color: #d0ffd0;
+  border-color: springgreen;
+  color: #333;
+}
+
+.mode-switch.active {
+  background-color: springgreen;
+  color: white;
+  border-color: springgreen;
+}
+
+/*▶のデザイン*/
+#arrow-indicator {
+  user-select: none;     /* テキスト選択を禁止 */
+  cursor: default;       /* 通常の矢印カーソルに固定 */
+  display: inline-block; /* インライン要素として整える */
 }
 
 /* ============================= */
@@ -405,13 +467,18 @@ mark {
  .line {
    flex-direction: column;         /* ✅ ラベルと歌詞を縦並びに */
    align-items: flex-start !important; /* ✅ 左揃えを強制 */
-   gap: 2px;                        /* ✅ ラベルと歌詞の間の余白は少なめに */
+   gap: 0px;                        /* ✅ ラベルと歌詞の間の余白は少なめに */
    margin-bottom: 18px;            /* ✅ ラベルとラベルの間の余白はやや広めに保つ */
+   display: flex;
   }
 
  .lyric-text {
-   width: 100%;
+   width: fit-content;
+   max-width: 100%;
    text-align: left;
+   padding-top: 0;
+   user-select: none;     /* テキスト選択を禁止 */
+   cursor: default;       /* カーソルを通常の矢印に固定 */
   }
 
  .main-menu ul {
@@ -476,6 +543,8 @@ main.lyrics-page {
     align-items: flex-start;         /* ✅ 垂直方向の中央揃え */
     gap: 32px;                   /* ✅ サムネと情報の間に余白 */
     text-align: left;            /* ✅ 曲情報を左揃えに */
+    user-select: none;
+    cursor: default;
   }
 
   .song-info {
@@ -486,6 +555,17 @@ main.lyrics-page {
   .song-title {
     text-align: left;              /* ✅ 曲名も左揃えに */
   }
+
+  .song-header,
+  .song-info,
+  .song-title,
+  #song-artist,
+  #song-date,
+  #song-album {
+    user-select: none;
+    cursor: default;
+  }
+
 
 .label-group {
     margin-right: 16px; /* ✅ ラベルと歌詞の間にしっかり余白を追加 */
