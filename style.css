@@ -263,6 +263,26 @@ mark {
   box-shadow: 0 0 4px rgba(0,0,0,0.2); /* ✅ 軽い影で強調 */
 }
 
+/*ホームページ見出し*/
+.kana-heading {
+  font-size: 20px;
+  margin-top: 32px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.card-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.kana-section {
+  margin-bottom: 32px;
+  display: block;
+}
+
 /* ============================= */
 /* 🌟 ヘッダー・タイトル設定 */
 /* ============================= */

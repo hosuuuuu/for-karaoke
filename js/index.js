@@ -1,8 +1,9 @@
 // グローバル変数に曲一覧を保持（検索・並び替え用）
 let songs = [];
 let lyricsMap = {};
-let currentSort = "date";
+let currentSort = "kana";
 let isDescending = true;
+let displayMode = "grouped"; // "grouped" or "flat"
 
 Promise.all([
   fetch("./json/songs.json").then(res => res.json())
@@ -19,7 +20,7 @@ Promise.all([
         const fullText = lyricBlocks.map(block => block.text).join("\n");
         lyricsMap[song.title] = fullText;
       } catch (err) {
-        console.warn(`歌詞の読み込み失敗: ${song.title}`, err);
+        console.warn(`歌詞の読み込み失敗: ${song.title}`, err.message);
         lyricsMap[song.title] = "";
       }
     })
@@ -28,10 +29,33 @@ Promise.all([
   applySort(); // 初期描画
 });
 
-function applySort() {
-  let sorted = [...songs];
+function applySort(sourceList = songs) {
+  let sorted = [...sourceList];
 
   switch (currentSort) {
+    case "title":
+      sorted.sort((a, b) =>
+        isDescending
+          ? b.title.localeCompare(a.title, "ja")
+          : a.title.localeCompare(b.title, "ja")
+      );
+      break;
+    case "artist":
+      sorted.sort((a, b) =>
+        isDescending
+          ? b.artist.localeCompare(a.artist, "ja")
+          : a.artist.localeCompare(b.artist, "ja")
+      );
+      break;
+    case "album":
+      sorted.sort((a, b) => {
+        const albumA = a.album === "なし" ? "～～～" : a.album;
+        const albumB = b.album === "なし" ? "～～～" : b.album;
+        return isDescending
+          ? albumB.localeCompare(albumA, "ja")
+          : albumA.localeCompare(albumB, "ja");
+      });
+      break;
     case "date":
       sorted.sort((a, b) =>
         isDescending
@@ -39,7 +63,15 @@ function applySort() {
           : new Date(a.releaseDate) - new Date(b.releaseDate)
       );
       break;
-    // 他の並び順もここに続く
+    case "kana":
+      sorted.sort((a, b) => {
+        const aKana = a.kana || "";
+        const bKana = b.kana || "";
+        return isDescending
+          ? bKana.localeCompare(aKana, "ja")
+          : aKana.localeCompare(bKana, "ja");
+      });
+      break;
   }
 
   renderCards(sorted);
@@ -69,22 +101,36 @@ function renderCards(list) {
     noResults.style.display = "none";
   }
 
-  list.forEach(song => {
-    const title = highlight(song.title, keyword);
+  // ✅ 並び順に応じてグループ化
+  const grouped = groupByKey(list, currentSort);
 
-    const card = document.createElement("a");
-    card.className = "card";
-    card.href = `./html/lyrics.html?id=${song.id}`;
-    card.dataset.title = song.title;
+  // 🔤 見出し＋カード群を描画
+  Object.keys(grouped).sort().forEach(initial => {
+    const section = document.createElement("div");
+    section.className = "kana-section";
+    section.innerHTML = `<h2 class="kana-heading">${initial}</h2>`;
 
-    card.innerHTML = `
-      <img src="./images/song-${song.id}.webp" alt="${song.title}">
-      <p>${title}</p>
-    `;
+    const cardGroup = document.createElement("div");
+    cardGroup.className = "card-group";
 
-    container.appendChild(card);
+    grouped[initial].forEach(song => {
+      const title = highlight(song.title, keyword);
+      const card = document.createElement("a");
+      card.className = "card";
+      card.href = `./html/lyrics.html?id=${song.id}`;
+      card.dataset.title = song.title;
+      card.innerHTML = `
+        <img src="./images/song-${song.id}.webp" alt="${song.title}">
+        <p>${title}</p>
+      `;
+      cardGroup.appendChild(card);
   });
-}
+
+  section.appendChild(cardGroup);
+  container.appendChild(section);
+  });
+} 
+
 
 // 🔽 ③ 検索機能（検索ボックスの入力に応じて絞り込み）
 document.getElementById("search-input").addEventListener("input", function () {
@@ -101,29 +147,9 @@ document.getElementById("search-input").addEventListener("input", function () {
     );
   });
 
-  renderCards(filtered);
+  currentSort = "kana"; // ✅ 検索時は読み順でグループ化
+  applySort(filtered); // ✅ 並び順に従ってグループ化表示される
 });
-
-document.getElementById("search-button").addEventListener("click", () => {
-  const keyword = document.getElementById("search-input").value.toLowerCase().trim();
-  if (!keyword) return;
-
-  saveSearchHistory(keyword);   // ✅ このタイミングで履歴に追加
-  showSearchHistory();          // ✅ 履歴表示を更新
-
-  const filtered = songs.filter(song => {
-    const lyricsText = String(lyricsMap[song.title] || "").toLowerCase();
-    return (
-      song.title.toLowerCase().includes(keyword) ||
-      song.artist.toLowerCase().includes(keyword) ||
-      song.album.toLowerCase().includes(keyword) ||
-      lyricsText.includes(keyword)
-    );
-  });
-
-   renderCards(filtered);
-});
-
 
 const input = document.getElementById("search-input");
 const historyBox = document.getElementById("search-history");
@@ -216,49 +242,10 @@ document.querySelectorAll(".sort-btn").forEach(button => {
       isDescending = false; // 初回は昇順
     }
 
-    applySort();
-    updateSortButtonStyles();
+    applySort(); // ✅ 並び替え実行
+    updateSortButtonStyles(); // ✅ ボタンの見た目更新
   });
 });
-
-function applySort() {
-  let sorted = [...songs];
-
-  switch (currentSort) {
-    case "title":
-      sorted.sort((a, b) =>
-        isDescending
-          ? b.title.localeCompare(a.title, "ja")
-          : a.title.localeCompare(b.title, "ja")
-      );
-      break;
-    case "artist":
-      sorted.sort((a, b) =>
-        isDescending
-          ? b.artist.localeCompare(a.artist, "ja")
-          : a.artist.localeCompare(b.artist, "ja")
-      );
-      break;
-    case "album":
-      sorted.sort((a, b) => {
-        const albumA = a.album === "なし" ? "～～～" : a.album;
-        const albumB = b.album === "なし" ? "～～～" : b.album;
-        return isDescending
-          ? albumB.localeCompare(albumA, "ja")
-          : albumA.localeCompare(albumB, "ja");
-      });
-      break;
-    case "date":
-      sorted.sort((a, b) =>
-        isDescending
-          ? new Date(b.releaseDate) - new Date(a.releaseDate)
-          : new Date(a.releaseDate) - new Date(b.releaseDate)
-      );
-      break;
-  }
-
-  renderCards(sorted);
-}
 
 function updateSortButtonStyles() {
   document.querySelectorAll(".sort-btn").forEach(button => {
@@ -267,4 +254,33 @@ function updateSortButtonStyles() {
       button.classList.add("active");
     }
   });
+}
+
+function groupByKey(list, key) {
+  const grouped = {};
+  list.forEach(song => {
+    let groupLabel = "";
+
+    switch (key) {
+      case "date":
+        groupLabel = new Date(song.releaseDate).getFullYear() + "年";
+        break;
+      case "album":
+        groupLabel = song.album || "未分類";
+        break;
+      case "artist":
+        groupLabel = song.artist || "不明";
+        break;
+      case "kana":
+        groupLabel = (song.kana || song.title || "").charAt(0);
+        break;
+    }
+
+    if (!groupLabel) return; // 空ラベルはスキップ
+
+    if (!grouped[groupLabel]) grouped[groupLabel] = [];
+    grouped[groupLabel].push(song);
+  });
+
+  return grouped;
 }

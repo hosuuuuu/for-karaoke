@@ -2,6 +2,7 @@
   {
     "id": "s001",
     "title": "Happiness",
+    "yomi": "はぴねす",
     "releaseDate": "2025-09-21",
     "artist": "浦島坂田船",
     "album": "なし"
@@ -9,6 +10,7 @@
   {
     "id": "s002",
     "title": "Exorcise",
+    "yomi": "えくそさいず",
     "releaseDate": "2025-10-17",
     "artist": "浦島坂田船",
     "album": "なし"
@@ -16,6 +18,7 @@
   {
     "id": "s003",
     "title": "MINE MINE",
+    "yomi": "まいんまいん",
     "releaseDate": "2025-06-20",
     "artist": "浦島坂田船",
     "album": "WARN12G"
@@ -23,6 +26,7 @@
   {
     "id": "s004",
     "title": "Q for U",
+    "yomi": "きゅーふぉーゆー",
     "releaseDate": "2022-09-11",
     "artist": "浦島坂田船",
     "album": "なし"
@@ -30,6 +34,7 @@
   {
     "id": "s005",
     "title": "おーるでい・おーるにゃいと",
+    "yomi": "おーるでいおーるにゃいと",
     "releaseDate": "2023-10-14",
     "artist": "浦島坂田船",
     "album": "浦島坂田幽霊船 HALLOWEEEEN PARTY SPECIAL SELECTION"
@@ -37,6 +42,7 @@
   {
     "id": "s006",
     "title": "グリムメイカー",
+    "yomi": "ぐりむめいかー",
     "releaseDate": "2018-10-24",
     "artist": "浦島坂田船",
     "album": "浦島坂田幽霊船 HALLOWEEEEN PARTY SPECIAL SELECTION"
@@ -44,6 +50,7 @@
   {
     "id": "s007",
     "title": "ハロウ！ゴーストシップ",
+    "yomi": "はろうごーすとしっぷ",
     "releaseDate": "2017-10-23",
     "artist": "浦島坂田船",
     "album": "浦島坂田幽霊船 HALLOWEEEEN PARTY SPECIAL SELECTION"
@@ -51,6 +58,7 @@
   {
     "id": "s008",
     "title": "フレテ",
+    "yomi": "ふれて",
     "releaseDate": "2024-04-10",
     "artist": "浦島坂田船",
     "album": "Weddiing"
@@ -58,29 +66,177 @@
   {
     "id": "s009",
     "title": "KISS THE BULLET",
-    "releaseDate": "1970-01-01",
+    "yomi": "きすざばれっと",
+    "releaseDate": "2025-10-13",
     "artist": "浦島坂田船",
     "album": "なし"
   },
   {
     "id": "s010",
     "title": "HORRORISM",
-    "releaseDate": "1970-01-01",
+    "yomi": "ほろりずむ",
+    "releaseDate": "2019-10-15",
     "artist": "浦島坂田船",
     "album": "浦島坂田幽霊船 HALLOWEEEEN PARTY SPECIAL SELECTION"
   },
   {
     "id": "s011",
     "title": "Bad Monster",
-    "releaseDate": "1970-01-01",
+    "yomi": "ばっどもんすたー",
+    "releaseDate": "2020-10-24",
     "artist": "浦島坂田船",
     "album": "浦島坂田幽霊船 HALLOWEEEEN PARTY SPECIAL SELECTION"
   },
   {
     "id": "s012",
     "title": "駆け上がるボルテージ",
-    "releaseDate": "1970-01-01",
+    "yomi": "かけあがるぼるてーじ",
+    "releaseDate": "2021-07-12",
     "artist": "浦島坂田船",
     "album": "なし"
+  },
+  {
+    "id": "s013",
+    "title": "ゴーストルール",
+    "yomi": "ごーすとるーる",
+    "releaseDate": "2017-07-05",
+    "artist": "浦島坂田船",
+    "album": "Four the C"
+  },
+  {
+    "id": "s014",
+    "title": "ストリーミングハート",
+    "yomi": "すとりーみんぐはーと",
+    "releaseDate": "2025-10-18",
+    "artist": "浦島坂田船",
+    "album": "なし"
+  },
+  {
+    "id": "s015",
+    "title": "シックスセンス・ベル",
+    "yomi": "しっくすせんすべる",
+    "releaseDate": "2024-06-22",
+    "artist": "浦島坂田船",
+    "album": "Weddiing"
+  },
+  {
+    "id": "s016",
+    "title": "",
+    "yomi": "",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s017",
+    "title": "明日へのバイバイ",
+    "yomi": "あしたへのばいばい",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s018",
+    "title": "最強ライバル",
+    "yomi": "さいきょうらいばる",
+    "releaseDate": "2015-08-16",
+    "artist": "浦島坂田船",
+    "album": "うらさか日和"
+  },
+  {
+    "id": "s019",
+    "title": "君色々移り",
+    "yomi": "きみいろいろうつり",
+    "releaseDate": "2025-10-18",
+    "artist": "浦島坂田船",
+    "album": ""
+  },
+  {
+    "id": "s020",
+    "title": "ばく",
+    "yomi": "ばく",
+    "releaseDate": "2019-08-28",
+    "artist": "浦島坂田船",
+    "album": "ばく"
+  },
+  {
+    "id": "s021",
+    "title": "U.S.S.S HOLIC",
+    "yomi": "ゆーえすえすほりっく",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s022",
+    "title": "Crossroads",
+    "yomi": "くろすろーど",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s023",
+    "title": "You miss me, I know!",
+    "yomi": "ゆーみすみーあいのー",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s024",
+    "title": "今日から俺たちゴーストバスターズ",
+    "yomi": "きょうからおれたちごーすとばすたーず",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s025",
+    "title": "グッド・バイ",
+    "yomi": "ぐっどばい",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s026",
+    "title": "ダブルフェイス",
+    "yomi": "だぶるふぇいす",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s027",
+    "title": "Sweet and Bitter",
+    "yomi": "すいーとあんどびたー",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s028",
+    "title": "Ring ",
+    "yomi": "りんぐ",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s029",
+    "title": "Gotcha!!",
+    "yomi": "がっちゃ",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
+  },
+  {
+    "id": "s030",
+    "title": "Ready",
+    "yomi": "れでぃ",
+    "releaseDate": "1970-01-01",
+    "artist": "",
+    "album": ""
   }
 ]
