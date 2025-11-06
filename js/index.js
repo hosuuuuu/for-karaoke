@@ -1,15 +1,19 @@
-// グローバル変数に曲一覧を保持（検索・並び替え用）
-let songs = [];
-let lyricsMap = {};
-let currentSort = "kana";
-let isDescending = true;
+// 🔽 ① データ読み込み＆初期描画
+let songs = [];  //songs.jsonの内容をsongsに格納
+let lyricsMap = {}; //歌詞をlyricmapに格納
+let visibleSongs = []; // ✅ 現在表示中の曲リスト（検索 or 全体）
+let currentSort = "kana"; // 初期並び順（50音順）
+let isDescending = true;  // 初期は降順
 let displayMode = "grouped"; // "grouped" or "flat"
+
 
 Promise.all([
   fetch("./json/songs.json").then(res => res.json())
 ])
 .then(async ([songsData]) => {
   songs = songsData;
+  visibleSongs = songs; // ✅ 初期表示は全曲
+  applySort(); // 初期描画
 
   // 各曲の歌詞JSONを読み込む
   await Promise.all(
@@ -29,17 +33,10 @@ Promise.all([
   applySort(); // 初期描画
 });
 
-function applySort(sourceList = songs) {
+function applySort(sourceList = visibleSongs) {
   let sorted = [...sourceList];
 
   switch (currentSort) {
-    case "title":
-      sorted.sort((a, b) =>
-        isDescending
-          ? b.title.localeCompare(a.title, "ja")
-          : a.title.localeCompare(b.title, "ja")
-      );
-      break;
     case "artist":
       sorted.sort((a, b) =>
         isDescending
@@ -49,12 +46,16 @@ function applySort(sourceList = songs) {
       break;
     case "album":
       sorted.sort((a, b) => {
-        const albumA = a.album === "なし" ? "～～～" : a.album;
-        const albumB = b.album === "なし" ? "～～～" : b.album;
-        return isDescending
-          ? albumB.localeCompare(albumA, "ja")
-          : albumA.localeCompare(albumB, "ja");
-      });
+    const isAEmpty = a.album === "なし";
+    const isBEmpty = b.album === "なし";
+
+    if (isAEmpty && !isBEmpty) return 1;  // Aが「なし」→後ろへ
+    if (!isAEmpty && isBEmpty) return -1; // Bが「なし」→後ろへ
+
+    return isDescending
+      ? b.album.localeCompare(a.album, "ja")
+      : a.album.localeCompare(b.album, "ja");
+  });
       break;
     case "date":
       sorted.sort((a, b) =>
@@ -65,11 +66,11 @@ function applySort(sourceList = songs) {
       break;
     case "kana":
       sorted.sort((a, b) => {
-        const aKana = a.kana || "";
-        const bKana = b.kana || "";
+        const aYomi = a.yomi || "";
+        const bYomi = b.yomi || "";
         return isDescending
-          ? bKana.localeCompare(aKana, "ja")
-          : aKana.localeCompare(bKana, "ja");
+          ? bYomi.localeCompare(aYomi, "ja")
+          : aYomi.localeCompare(bYomi, "ja");
       });
       break;
   }
@@ -105,7 +106,13 @@ function renderCards(list) {
   const grouped = groupByKey(list, currentSort);
 
   // 🔤 見出し＋カード群を描画
-  Object.keys(grouped).sort().forEach(initial => {
+  Object.keys(grouped)
+    .sort((a, b) => {
+    if (a === "その他") return 1;
+    if (b === "その他") return -1;
+    return a.localeCompare(b, "ja");
+  })
+  .forEach(initial => {
     const section = document.createElement("div");
     section.className = "kana-section";
     section.innerHTML = `<h2 class="kana-heading">${initial}</h2>`;
@@ -147,8 +154,9 @@ document.getElementById("search-input").addEventListener("input", function () {
     );
   });
 
+  visibleSongs = filtered; // ✅ 現在表示中の曲リストを更新
   currentSort = "kana"; // ✅ 検索時は読み順でグループ化
-  applySort(filtered); // ✅ 並び順に従ってグループ化表示される
+  applySort(); // ✅ 並び順に従ってグループ化表示される
 });
 
 const input = document.getElementById("search-input");
@@ -218,7 +226,7 @@ document.getElementById("reset-button").addEventListener("click", () => {
   if (searchBox) searchBox.value = "";
 
   // 並び替え状態を初期化
-  currentSort = "date";      // ✅ 初期並び順（発表日順）
+  currentSort = "kana";      // ✅ 初期並び順（発表日順）
   isDescending = true;
 
   // ボタンの選択状態も更新
@@ -247,14 +255,6 @@ document.querySelectorAll(".sort-btn").forEach(button => {
   });
 });
 
-function updateSortButtonStyles() {
-  document.querySelectorAll(".sort-btn").forEach(button => {
-    button.classList.remove("active");
-    if (button.dataset.sort === currentSort) {
-      button.classList.add("active");
-    }
-  });
-}
 
 function groupByKey(list, key) {
   const grouped = {};
@@ -272,7 +272,9 @@ function groupByKey(list, key) {
         groupLabel = song.artist || "不明";
         break;
       case "kana":
-        groupLabel = (song.kana || song.title || "").charAt(0);
+        const firstChar = (song.yomi || song.title || "").charAt(0);
+        const isJapaneseKana = /^[\u3041-\u3096]$/.test(firstChar); // ひらがな判定
+        groupLabel = isJapaneseKana ? firstChar : "その他";
         break;
     }
 
